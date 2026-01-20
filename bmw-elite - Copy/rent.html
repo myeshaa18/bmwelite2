@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent a BMW - BMW Elite</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/rent.css">
+    <link rel="stylesheet" href="css/enquiry.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo/bmw-elite-logo.png" alt="BMW Elite Logo" class="logo-img">
+                <span class="logo-text">BMW <span class="elite">ELITE</span></span>
+            </div>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="rent.html" class="nav-link active">Rent</a>
+                <a href="buy.html" class="nav-link">Buy</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+                <a href="wishlist.html" class="nav-link wishlist-link">
+                    <i class="fas fa-heart"></i> Wishlist
+                    <span class="wishlist-count">0</span>
+                </a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn-login" id="loginBtn" onclick="window.location.href='login.html'">Login</button>
+                <button class="btn-signup" id="signupBtn" onclick="window.location.href='signup.html'">Sign Up</button>
+
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar" id="userAvatar" onclick="toggleUserDropdown()">U</div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown-header">
+                            <div class="user-dropdown-name" id="userName">User Name</div>
+                            <div class="user-dropdown-email" id="userEmail">user@email.com</div>
+                        </div>
+                        <div class="user-dropdown-menu">
+                            
+                            <a href="bookings.html" class="user-dropdown-item"><i class="fas fa-car"></i> My Bookings</a>
+                            <div class="user-dropdown-item logout" onclick="logoutUser()">
+                                <i class="fas fa-sign-out-alt"></i> Sign Out
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="video-background" id="rentHeroVideo">
+            <video autoplay muted loop playsinline>
+                <source src="images/videos/bmw-hero-video.mp4" type="video/mp4">
+            </video>
+            
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Rent Your Dream BMW</h1>
+            <p class="hero-subtitle">Experience luxury on your terms with our premium BMW fleet</p>
+        </div>
+    </section>
+
+    <!-- Search Filters -->
+    <section class="searchh-section">
+        <div class="container">
+            <div class="searchh-container">
+                <div class="searchh-grid">
+                    <div class="searchh-item">
+                        <label><i class="fas fa-car"></i> Car Model</label>
+                        <select id="modelFilter">
+                            <option value="">All Models</option>
+                            <option value="x-series">X Series (SUV)</option>
+                            <option value="m-series">M Series (Performance)</option>
+                            <option value="number-series">3, 5, 7 Series (Sedan)</option>
+                            <option value="z-series">Z Series (Roadster)</option>
+                            <option value="i-series">i Series (Electric)</option>
+                        </select>
+                    </div>
+
+                    <div class="searchh-item">
+                        <label><i class="fas fa-calendar"></i> Year</label>
+                        <select id="yearFilter">
+                            <option value="">All Years</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                        </select>
+                    </div>
+
+                    <div class="searchh-item">
+                        <label><i class="fas fa-dollar-sign"></i> Price Range</label>
+                        <select id="priceFilter">
+                            <option value="">All Prices</option>
+                            <option value="0-1500">AED 0 - 1,500 /day</option>
+                            <option value="1500-2500">AED 1,500 - 2,500 /day</option>
+                            <option value="2500-3500">AED 2,500 - 3,500 /day</option>
+                            <option value="3500+">AED 3,500+ /day</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-search" onclick="applyFilters()">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+
+                    <button class="btn-reset" onclick="resetFilters()">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cars Grid Container -->
+    <div id="carsContainer">
+        
+    </div>
+
+    <!-- Customer Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>Real reviews from satisfied BMW Elite customers</p>
+            </div>
+
+            <div class="reviews-container">
+                <div class="reviews-image">
+                    <img src="images/reviews/bmw-customer.jpg" alt="Happy Customer">
+                </div>
+
+                <div class="reviews-carousel">
+                    <div class="review-card active" id="review1">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="review-info">
+                                <h4>Ahmed Al Maktoum</h4>
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">"Rented the BMW X7 for a week. Absolutely fantastic service! The car was in pristine condition and the team was very professional. Will definitely rent again!"</p>
+                        <span class="review-date">2 days ago via WhatsApp</span>
+                    </div>
+
+                    <div class="review-card" id="review2">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div class="review-info">
+                                <h4>Sarah Johnson</h4>
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">"The M4 Competition is a beast! BMW Elite made the rental process so smooth. Great customer service and the car exceeded all expectations. Highly recommended!"</p>
+                        <span class="review-date">5 days ago via Instagram</span>
+                    </div>
+
+                    <div class="review-card" id="review3">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="review-info">
+                                <h4>Mohammed Hassan</h4>
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">"Best luxury car rental experience in Dubai! The 7 Series was perfect for my business meetings. Professional service from start to finish. Five stars!"</p>
+                        <span class="review-date">1 week ago via WhatsApp</span>
+                    </div>
+
+                    <div class="review-card" id="review4">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <div class="review-info">
+                                <h4>Emily Rodriguez</h4>
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">"Rented the i8 Roadster for my anniversary. What an amazing experience! The car turned heads everywhere. Thank you BMW Elite for making our day special!"</p>
+                        <span class="review-date">2 weeks ago via Facebook</span>
+                    </div>
+
+                    <div class="reviews-navigation">
+                        <button class="review-nav prev" onclick="previousReview()">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="review-dots" id="reviewDots"></div>
+                        <button class="review-nav next" onclick="nextReview()">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo/bmw-elite-logo.png" alt="BMW Elite Logo">
+                        <span>BMW <span class="elite">ELITE</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Your premier destination for luxury BMW rentals and sales in Dubai.
+                        Experience excellence with every drive.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.x.com"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="rent.html">Rent a Car</a></li>
+                        <li><a href="buy.html">Buy a Car</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
+                        <li><i class="fas fa-phone"></i> +971 XX XXX XXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@bmwelite.ae</li>
+                        <li><i class="fas fa-clock"></i> Mon - Sat: 9AM - 9PM</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Search Our Collection</h4>
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <input type="text"
+                                   id="footerSearch"
+                                   class="search-input"
+                                   placeholder="Search cars...">
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <div class="search-dropdown" id="searchDropdown">
+                                <div class="dropdown-item" data-filter="all">All Vehicles</div>
+                                <div class="dropdown-item" data-filter="rent">For Rent</div>
+                                <div class="dropdown-item" data-filter="sale">For Sale</div>
+                                <div class="dropdown-item" data-filter="suv">SUVs</div>
+                                <div class="dropdown-item" data-filter="sedan">Sedans</div>
+                                <div class="dropdown-item" data-filter="sports">Sports Cars</div>
+                            </div>
+                        </div>
+                        <div class="search-suggestions" id="searchSuggestions"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 BMW Elite. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="terms-privacy.html">Privacy Policy</a>
+                    <a href="terms-privacy.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Car Details Modal -->
+    <div class="modal" id="carModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeCarDetails()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+    <!-- Enquiry Form Modal -->
+    <div class="enquiry-modal" id="enquiryModal">
+        <div class="enquiry-modal-content">
+            <button class="enquiry-modal-close" onclick="closeEnquiryForm()">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="enquiry-form-header">
+                <h2>Submit Your Enquiry</h2>
+                <p>Fill in the details below and we'll get back to you shortly</p>
+            </div>
+
+            <div class="enquiry-form-body">
+                <div class="car-info-summary" id="carInfoSummary"></div>
+
+                <form id="enquiryForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="enquiryName" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="enquiryEmail" required readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Phone Number *</label>
+                        <input type="tel" id="enquiryPhone" placeholder="+971 XX XXX XXXX" required>
+                    </div>
+
+                    <div id="rentalFields" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-calendar"></i> Preferred Date *</label>
+                                <input type="date" id="enquiryDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-clock"></i> Duration (Days) *</label>
+                                <input type="number" id="enquiryDuration" min="1" placeholder="e.g., 7" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-message"></i> Additional Message (Optional)</label>
+                        <textarea id="enquiryMessage" placeholder="Any special requests or questions..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-enquiry">
+                        Submit Enquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Required Modal -->
+    <div class="login-required-modal" id="loginRequiredModal">
+        <div class="login-required-content">
+            <div class="login-required-icon">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h2>Login Required</h2>
+            <p>Please login to your account to submit an enquiry and access all features.</p>
+            <div class="login-required-buttons">
+                <button class="btn-login-now" onclick="window.location.href='login.html'">
+                    Login Now
+                </button>
+                <button class="btn-cancel" onclick="closeLoginRequired()">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Message -->
+    <div class="alert-message" id="alertMessage">
+        <i class="fas fa-check-circle"></i>
+        <span class="alert-message-text">Message text here</span>
+    </div>
+
+    <script src="js/home.js"></script>
+    <script src="js/rent.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/enquiry.js"></script>
+</body>
+</html>

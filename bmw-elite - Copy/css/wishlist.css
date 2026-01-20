@@ -1,0 +1,670 @@
+/* wishlist.css - Wishlist Page Styles */
+
+/* Hero Section */
+.page-hero {
+    position: relative;
+    height: 40vh;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #000000 0%, #1C69D4 100%);
+    margin-top: 80px;
+}
+
+.hero-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(28, 105, 212, 0.6) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+/* Wishlist Section */
+.wishlist-section {
+    padding: 80px 0;
+    background: #000;
+    min-height: 60vh;
+}
+
+/* Wishlist Header */
+.wishlist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid rgba(28, 105, 212, 0.3);
+}
+
+.wishlist-info h2 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.wishlist-info p {
+    font-size: 1.1rem;
+    color: #999;
+}
+
+.btn-clear-all {
+    padding: 12px 25px;
+    background: rgba(255, 71, 87, 0.2);
+    color: #ff4757;
+    border: 2px solid #ff4757;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .btn-clear-all:hover {
+        background: #ff4757;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(255, 71, 87, 0.4);
+    }
+
+/* Empty Wishlist State */
+.empty-wishlist {
+    display: none;
+    text-align: center;
+    padding: 100px 20px;
+    color: white;
+}
+
+    .empty-wishlist.active {
+        display: block;
+    }
+
+    .empty-wishlist i {
+        font-size: 8rem;
+        color: rgba(28, 105, 212, 0.3);
+        margin-bottom: 30px;
+    }
+
+    .empty-wishlist h3 {
+        font-size: 2.5rem;
+        color: white;
+        margin-bottom: 15px;
+    }
+
+    .empty-wishlist p {
+        font-size: 1.2rem;
+        color: #999;
+        margin-bottom: 40px;
+    }
+
+.empty-wishlist-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-browse {
+    padding: 15px 35px;
+    background: linear-gradient(135deg, #1C69D4 0%, #0066CC 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .btn-browse:hover {
+        background: linear-gradient(135deg, #0066CC 0%, #004C99 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(28, 105, 212, 0.5);
+    }
+
+/* Wishlist Grid */
+.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* Car Card - Same as rent/buy pages */
+.car-card {
+    background: #111;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid rgba(28, 105, 212, 0.2);
+}
+
+    .car-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(28, 105, 212, 0.4);
+        border-color: rgba(28, 105, 212, 0.5);
+    }
+
+.car-image {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+    .car-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+.car-card:hover .car-image img {
+    transform: scale(1.1);
+}
+
+.car-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #1C69D4;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+    .car-badge.sale {
+        background: #ff4757;
+    }
+
+.wishlist-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+    .wishlist-btn:hover {
+        transform: scale(1.1);
+        background: #ff4757;
+        color: white;
+    }
+
+    .wishlist-btn.active {
+        background: #ff4757;
+        color: white;
+    }
+
+    .wishlist-btn i {
+        font-size: 1.2rem;
+    }
+
+.car-info {
+    padding: 25px;
+}
+
+.car-model {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.car-year-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.car-year {
+    color: #999;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+    .car-year i {
+        color: #1C69D4;
+    }
+
+.car-price {
+    text-align: right;
+}
+
+.price {
+    font-size: 1.8rem;
+    color: #1C69D4;
+    font-weight: 700;
+}
+
+    .price small {
+        font-size: 1rem;
+        color: #999;
+    }
+
+.btn-details {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #1C69D4 0%, #0066CC 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .btn-details:hover {
+        background: linear-gradient(135deg, #0066CC 0%, #004C99 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(28, 105, 212, 0.5);
+    }
+
+/* Modal Styles - Matching rent/buy pages */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+    .modal.active {
+        display: flex;
+    }
+
+.modal-content {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+    border-radius: 20px;
+    max-width: 1000px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.4s ease;
+    border: 1px solid rgba(28, 105, 212, 0.3);
+    box-shadow: 0 25px 80px rgba(28, 105, 212, 0.4);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(28, 105, 212, 0.2);
+    color: white;
+    border: 2px solid rgba(28, 105, 212, 0.5);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+    .modal-close:hover {
+        background: #1C69D4;
+        border-color: #1C69D4;
+        transform: rotate(90deg) scale(1.1);
+    }
+
+.modal-body {
+    padding: 50px;
+}
+
+/* Modal Image Carousel */
+.modal-car-images {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    margin-bottom: 35px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.modal-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-car-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+    .modal-car-image.active {
+        opacity: 1;
+    }
+
+.image-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(28, 105, 212, 0.8);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+    .image-nav:hover {
+        background: #1C69D4;
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .image-nav.prev {
+        left: 20px;
+    }
+
+    .image-nav.next {
+        right: 20px;
+    }
+
+.image-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 5;
+}
+
+.image-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .image-indicator.active {
+        background: white;
+        width: 30px;
+        border-radius: 6px;
+    }
+
+.modal-car-title {
+    font-size: 2.8rem;
+    color: white;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.modal-car-specs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.spec-item {
+    text-align: center;
+    padding: 25px 20px;
+    background: rgba(28, 105, 212, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(28, 105, 212, 0.3);
+    transition: all 0.3s ease;
+}
+
+    .spec-item:hover {
+        background: rgba(28, 105, 212, 0.2);
+        transform: translateY(-5px);
+    }
+
+    .spec-item i {
+        font-size: 2.2rem;
+        color: #1C69D4;
+        margin-bottom: 12px;
+        display: block;
+    }
+
+.spec-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.spec-value {
+    font-size: 1.15rem;
+    color: white;
+    font-weight: 700;
+}
+
+.modal-car-description {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.9;
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    border-left: 4px solid #1C69D4;
+}
+
+.modal-car-price {
+    font-size: 2.8rem;
+    color: #1C69D4;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-rent, .btn-buy {
+    flex: 1;
+    padding: 18px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-rent {
+    background: linear-gradient(135deg, #1C69D4 0%, #0066CC 100%);
+    color: white;
+}
+
+    .btn-rent:hover, .btn-buy:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(28, 105, 212, 0.6);
+    }
+
+.btn-buy {
+    background: linear-gradient(135deg, #1C69D4 0%, #0066CC 100%);
+    color: white;
+}
+
+.btn-whatsapp {
+    padding: 18px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+    .btn-whatsapp:hover {
+        background: linear-gradient(135deg, #128C7E 0%, #0a5f54 100%);
+        transform: translateY(-3px);
+    }
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .wishlist-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .wishlist-header {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+
+    .wishlist-info h2 {
+        font-size: 2rem;
+    }
+
+    .wishlist-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .empty-wishlist i {
+        font-size: 5rem;
+    }
+
+    .empty-wishlist h3 {
+        font-size: 2rem;
+    }
+
+    .empty-wishlist-actions {
+        flex-direction: column;
+    }
+
+    .modal-car-specs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-body {
+        padding: 30px 20px;
+    }
+
+    .modal-car-images {
+        height: 300px;
+    }
+
+    .image-nav {
+        width: 40px;
+        height: 40px;
+    }
+}

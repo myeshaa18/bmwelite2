@@ -1,0 +1,33 @@
+{
+  "name": "bmw-elite",
+  "version": "1.0.0",
+  "description": "BMW Elite - Premium Car Rental & Sales Website",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bmw",
+    "car-rental",
+    "luxury-cars",
+    "nodejs",
+    "mongodb",
+    "express"
+  ],
+  "author": "BMW Elite Team",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.6.3",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

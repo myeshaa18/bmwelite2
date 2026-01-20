@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW Elite - Premium Car Rental & Sales</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/enquiry.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo/bmw-elite-logo.png" alt="BMW Elite Logo" class="logo-img">
+                <span class="logo-text">BMW <span class="elite">ELITE</span></span>
+            </div>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="rent.html" class="nav-link">Rent</a>
+                <a href="buy.html" class="nav-link">Buy</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+                <a href="wishlist.html" class="nav-link wishlist-link">
+                    <i class="fas fa-heart"></i> Wishlist
+                    <span class="wishlist-count">0</span>
+                </a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn-login" id="loginBtn" onclick="window.location.href='login.html'">Login</button>
+                <button class="btn-signup" id="signupBtn" onclick="window.location.href='signup.html'">Sign Up</button>
+
+                <!-- User Profile (Hidden by default, shown when logged in) -->
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar" id="userAvatar" onclick="toggleUserDropdown()">
+                        U
+                    </div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown-header">
+                            <div class="user-dropdown-name" id="userName">User Name</div>
+                            <div class="user-dropdown-email" id="userEmail">user@email.com</div>
+                        </div>
+                        <div class="user-dropdown-menu">
+                           
+                            <a href="bookings.html" class="user-dropdown-item">
+                                <i class="fas fa-car"></i>
+                                My Bookings
+                            </a>
+                            
+                            <div class="user-dropdown-item logout" onclick="logoutUser()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Sign Out
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with YouTube Video Background -->
+    <section class="hero-section">
+        <div class="video-background" id="heroVideo">
+           
+            <div class="video-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line-1">Experience</span>
+                <span class="title-line-2">Ultimate Luxury</span>
+            </h1>
+            <p class="hero-subtitle">Premium BMW Rentals & Sales in Dubai</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToSection('featured')">
+                    Explore Collection
+                </button>
+                <button class="btn-secondary" onclick="window.location.href='contact.html'">
+                    Contact Us
+                </button>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down" onclick="scrollToSection('featured')"></i>
+
+
+        </div>
+    </section>
+
+    <!-- Featured Listings -->
+    <section class="featured-section" id="featured">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Collection</h2>
+                <p>Discover our handpicked selection of premium BMW vehicles</p>
+            </div>
+
+            <div class="carousel-container">
+                <button class="carousel-btn prev" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="carousel-wrapper">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Car 1 -->
+                        <div class="car-card" data-car-id="1">
+                            <div class="car-image">
+                                <img src="images/cars/car1.jpg" alt="BMW X7">
+                                <div class="car-badge">For Rent</div>
+                                <button class="wishlist-btn" onclick="toggleWishlist(1)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="car-info">
+                                <h3 class="car-model">BMW X7 M50i</h3>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-calendar"></i> 2022</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 5,000 km</span>
+                                    <span><i class="fas fa-cog"></i> Automatic</span>
+                                </div>
+                                <p class="car-description">
+                                    The BMW X7 combines luxury with power, featuring a twin-turbo V8 engine and premium interior.
+                                </p>
+                                <div class="car-price">
+                                    <span class="price">AED 2,500 <small>/day</small></span>
+                                </div>
+                                <button class="btn-details" onclick="openCarDetails(1)">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Car 2 -->
+                        <div class="car-card" data-car-id="2">
+                            <div class="car-image">
+                                <img src="images/cars/car2.jpg" alt="BMW M4">
+                                <div class="car-badge sale">For Sale</div>
+                                <button class="wishlist-btn" onclick="toggleWishlist(2)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="car-info">
+                                <h3 class="car-model">BMW M4 Competition</h3>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-calendar"></i> 2023</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 12,000 km</span>
+                                    <span><i class="fas fa-cog"></i> Automatic</span>
+                                </div>
+                                <p class="car-description">
+                                    Pure performance with a 3.0L twin-turbo inline-six, delivering 503 hp of thrilling power.
+                                </p>
+                                <div class="car-price">
+                                    <span class="price">AED 385,000</span>
+                                </div>
+                                <button class="btn-details" onclick="openCarDetails(2)">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Car 3 -->
+                        <div class="car-card" data-car-id="3">
+                            <div class="car-image">
+                                <img src="images/cars/car3.jpg" alt="BMW i8">
+                                <div class="car-badge">For Rent</div>
+                                <button class="wishlist-btn" onclick="toggleWishlist(3)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="car-info">
+                                <h3 class="car-model">BMW i8 Roadster</h3>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-calendar"></i> 2024</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 3,500 km</span>
+                                    <span><i class="fas fa-bolt"></i> Hybrid</span>
+                                </div>
+                                <p class="car-description">
+                                    Futuristic hybrid sports car combining electric efficiency with combustion power.
+                                </p>
+                                <div class="car-price">
+                                    <span class="price">AED 3,200 <small>/day</small></span>
+                                </div>
+                                <button class="btn-details" onclick="openCarDetails(3)">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Car 4 -->
+                        <div class="car-card" data-car-id="4">
+                            <div class="car-image">
+                                <img src="images/cars/car4.jpg" alt="BMW 7 Series">
+                                <div class="car-badge sale">For Sale</div>
+                                <button class="wishlist-btn" onclick="toggleWishlist(4)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="car-info">
+                                <h3 class="car-model">BMW 7 Series 750Li</h3>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-calendar"></i> 2021</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 8,000 km</span>
+                                    <span><i class="fas fa-cog"></i> Automatic</span>
+                                </div>
+                                <p class="car-description">
+                                    Executive luxury sedan with cutting-edge technology and supreme comfort.
+                                </p>
+                                <div class="car-price">
+                                    <span class="price">AED 425,000</span>
+                                </div>
+                                <button class="btn-details" onclick="openCarDetails(4)">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Car 5 -->
+                        <div class="car-card" data-car-id="5">
+                            <div class="car-image">
+                                <img src="images/cars/car5.jpg" alt="BMW X5">
+                                <div class="car-badge">For Rent</div>
+                                <button class="wishlist-btn" onclick="toggleWishlist(5)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="car-info">
+                                <h3 class="car-model">BMW X5 M Competition</h3>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-calendar"></i> 2024</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 6,200 km</span>
+                                    <span><i class="fas fa-cog"></i> Automatic</span>
+                                </div>
+                                <p class="car-description">
+                                    High-performance SUV with 617 hp, combining versatility with sports car dynamics.
+                                </p>
+                                <div class="car-price">
+                                    <span class="price">AED 2,800 <small>/day</small></span>
+                                </div>
+                                <button class="btn-details" onclick="openCarDetails(5)">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Car 6 -->
+                        <div class="car-card" data-car-id="6">
+                            <div class="car-image">
+                                <img src="images/cars/car6.jpg" alt="BMW M8">
+                                <div class="car-badge sale">For Sale</div>
+                                <button class="wishlist-btn" onclick="toggleWishlist(6)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="car-info">
+                                <h3 class="car-model">BMW M8 Gran Coupe</h3>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-calendar"></i> 2024</span>
+                                    <span><i class="fas fa-tachometer-alt"></i> 4,500 km</span>
+                                    <span><i class="fas fa-cog"></i> Automatic</span>
+                                </div>
+                                <p class="car-description">
+                                    Ultimate luxury gran coupe with 617 hp and breathtaking performance.
+                                </p>
+                                <div class="car-price">
+                                    <span class="price">AED 675,000</span>
+                                </div>
+                                <button class="btn-details" onclick="openCarDetails(6)">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-btn next" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose BMW Elite</h2>
+                <p>Exceptional service and premium vehicles for discerning customers</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/why1.jpg" alt="Premium Selection">
+                    </div>
+                    <h3>Premium Selection</h3>
+                    <p>Handpicked collection of the finest BMW models, meticulously maintained to perfection.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/why2.jpg" alt="24/7 Support">
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock customer service ensuring your experience is seamless and hassle-free.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="images/why3.jpg" alt="Best Prices">
+                    </div>
+                    <h3>Competitive Pricing</h3>
+                    <p>Transparent pricing with no hidden fees, offering the best value for luxury vehicles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experience The Thrill</h2>
+                <p>Watch our exclusive BMW collection in action</p>
+            </div>
+
+            <div class="video-container" id="youtubeVideoContainer">
+                
+                <div class="video-placeholder">
+                    <i class="fab fa-youtube"></i>
+                    <p>Loading video...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo/bmw-elite-logo.png" alt="BMW Elite Logo">
+                        <span>BMW <span class="elite">ELITE</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Your premier destination for luxury BMW rentals and sales in Dubai.
+                        Experience excellence with every drive.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.x.com"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="rent.html">Rent a Car</a></li>
+                        <li><a href="buy.html">Buy a Car</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
+                        <li><i class="fas fa-phone"></i> +971 XX XXX XXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@bmwelite.ae</li>
+                        <li><i class="fas fa-clock"></i> Mon - Sat: 9AM - 9PM</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Search Our Collection</h4>
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <input type="text"
+                                   id="footerSearch"
+                                   class="search-input"
+                                   placeholder="Search cars...">
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            <div class="search-dropdown" id="searchDropdown">
+                                <div class="dropdown-item" data-filter="all">All Vehicles</div>
+                                <div class="dropdown-item" data-filter="rent">For Rent</div>
+                                <div class="dropdown-item" data-filter="sale">For Sale</div>
+                                <div class="dropdown-item" data-filter="suv">SUVs</div>
+                                <div class="dropdown-item" data-filter="sedan">Sedans</div>
+                                <div class="dropdown-item" data-filter="sports">Sports Cars</div>
+                            </div>
+                        </div>
+                        <div class="search-suggestions" id="searchSuggestions"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 BMW Elite. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="terms-privacy.html">Privacy Policy</a>
+                    <a href="terms-privacy.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Car Details Modal -->
+    <div class="modal" id="carModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeCarDetails()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody">
+              
+            </div>
+        </div>
+    </div>
+    <!-- Enquiry Form Modal -->
+    <div class="enquiry-modal" id="enquiryModal">
+        <div class="enquiry-modal-content">
+            <button class="enquiry-modal-close" onclick="closeEnquiryForm()">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="enquiry-form-header">
+                <h2>Submit Your Enquiry</h2>
+                <p>Fill in the details below and we'll get back to you shortly</p>
+            </div>
+
+            <div class="enquiry-form-body">
+                <div class="car-info-summary" id="carInfoSummary"></div>
+
+                <form id="enquiryForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="enquiryName" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="enquiryEmail" required readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Phone Number *</label>
+                        <input type="tel" id="enquiryPhone" placeholder="+971 XX XXX XXXX" required>
+                    </div>
+
+                    <div id="rentalFields" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-calendar"></i> Preferred Date *</label>
+                                <input type="date" id="enquiryDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-clock"></i> Duration (Days) *</label>
+                                <input type="number" id="enquiryDuration" min="1" placeholder="e.g., 7" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-message"></i> Additional Message (Optional)</label>
+                        <textarea id="enquiryMessage" placeholder="Any special requests or questions..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-enquiry">
+                        Submit Enquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Required Modal -->
+    <div class="login-required-modal" id="loginRequiredModal">
+        <div class="login-required-content">
+            <div class="login-required-icon">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h2>Login Required</h2>
+            <p>Please login to your account to submit an enquiry and access all features.</p>
+            <div class="login-required-buttons">
+                <button class="btn-login-now" onclick="window.location.href='login.html'">
+                    Login Now
+                </button>
+                <button class="btn-cancel" onclick="closeLoginRequired()">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Message -->
+    <div class="alert-message" id="alertMessage">
+        <i class="fas fa-check-circle"></i>
+        <span class="alert-message-text">Message text here</span>
+    </div>
+
+    <script src="js/home.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/enquiry.js"></script>
+</body>
+</html>
