@@ -70,7 +70,7 @@ async function handleGoogleCallback(response) {
 
         const payload = parseJwt(credential);
 
-        const backendResponse = await fetch('http://localhost:3000/api/auth/google', {
+        const backendResponse = await fetch('/api/auth/google', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
