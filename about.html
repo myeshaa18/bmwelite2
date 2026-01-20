@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - BMW Elite</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo/bmw-elite-logo.png" alt="BMW Elite Logo" class="logo-img">
+                <span class="logo-text">BMW <span class="elite">ELITE</span></span>
+            </div>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="rent.html" class="nav-link">Rent</a>
+                <a href="buy.html" class="nav-link">Buy</a>
+                <a href="about.html" class="nav-link active">About Us</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+                <a href="wishlist.html" class="nav-link wishlist-link">
+                    <i class="fas fa-heart"></i> Wishlist
+                    <span class="wishlist-count">0</span>
+                </a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn-login" id="loginBtn" onclick="window.location.href='login.html'">Login</button>
+                <button class="btn-signup" id="signupBtn" onclick="window.location.href='signup.html'">Sign Up</button>
+
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar" id="userAvatar" onclick="toggleUserDropdown()">U</div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown-header">
+                            <div class="user-dropdown-name" id="userName">User Name</div>
+                            <div class="user-dropdown-email" id="userEmail">user@email.com</div>
+                        </div>
+                        <div class="user-dropdown-menu">
+                            
+                            <a href="bookings.html" class="user-dropdown-item"><i class="fas fa-car"></i> My Bookings</a>
+                            
+                            <div class="user-dropdown-item logout" onclick="logoutUser()">
+                                <i class="fas fa-sign-out-alt"></i> Sign Out
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Video Background -->
+    <section class="hero-section">
+        <div class="video-background" id="heroVideo">
+            <div class="video-overlay"></div>
+            <video autoplay muted loop playsinline>
+                <source src="images/videos/about hero.mp4" type="video/mp4">
+            </video>
+
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line-1">About</span>
+                <span class="title-line-2">BMW Elite</span>
+            </h1>
+            <p class="hero-subtitle">Redefining Luxury Automotive Excellence Since 2018</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToSection('story-section')">
+                    Our Story
+                </button>
+                <button class="btn-secondary" onclick="scrollToSection('team-section')">
+                    Meet The Team
+                </button>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down" onclick="scrollToSection('story-section')"></i>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="story-section" id="story-section">
+        <div class="container">
+            <div class="story-grid">
+                <!-- Story Image with Overlay -->
+                <div class="story-image-container">
+                    <img src="images/about/story-image.jpg" alt="BMW Elite Story" class="story-main-image">
+                    <div class="story-badge">
+                        <div class="badge-year">2018</div>
+                        <div class="badge-text">Est.</div>
+                    </div>
+                </div>
+
+                <!-- Story Content -->
+                <div class="story-content">
+                    <div class="section-label">Our Journey</div>
+                    <h2>The BMW Elite Story</h2>
+                    <p class="story-intro">Founded in the heart of Dubai, BMW Elite emerged from a passion for exceptional automobiles and unparalleled service.</p>
+
+                    <div class="story-text">
+                        <p>We recognized a need for a premium automotive experience that goes beyond mere transactions. Over the years, we've curated an exclusive collection of BMW's finest vehicles, each handpicked for its performance, luxury, and innovation.</p>
+
+                        <p>Our commitment to excellence has made us the trusted choice for discerning clients who demand nothing but the best. Today, BMW Elite stands as a symbol of automotive prestige, offering both rental and sales services that cater to the sophisticated tastes of our clientele.</p>
+
+                        <p>Every vehicle in our collection tells a story of engineering brilliance and design mastery, and we take pride in delivering experiences that exceed expectations.</p>
+                    </div>
+
+                    <div class="story-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <h4>Premium Quality</h4>
+                                <p>Handpicked BMW vehicles</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Trust & Excellence</h4>
+                                <p>Unmatched customer service</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Values Section -->
+    <section class="vision-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Vision & Values</h2>
+                <p>The principles that drive our success</p>
+            </div>
+
+            <div class="vision-grid">
+                <div class="vision-card">
+                    <div class="vision-image">
+                        <img src="images/about/vision-image.jpg" alt="Our Vision">
+                        <div class="vision-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="vision-content">
+                        <h3>Our Vision</h3>
+                        <p>To be the premier destination for luxury BMW experiences in the UAE, setting new standards in automotive excellence and customer satisfaction. We envision a future where every client experiences unparalleled luxury and service.</p>
+                    </div>
+                </div>
+
+                <div class="vision-card">
+                    <div class="vision-image">
+                        <img src="images/about/mission-image.jpg" alt="Our Mission">
+                        <div class="vision-overlay">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                    </div>
+                    <div class="vision-content">
+                        <h3>Our Mission</h3>
+                        <p>To deliver exceptional automotive experiences through our curated collection of premium BMW vehicles, backed by professional service, transparent dealings, and a commitment to exceeding client expectations at every touchpoint.</p>
+                    </div>
+                </div>
+
+                <div class="vision-card">
+                    <div class="vision-image">
+                        <img src="images/about/values-image.jpg" alt="Our Values">
+                        <div class="vision-overlay">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="vision-content">
+                        <h3>Our Values</h3>
+                        <p>Excellence, integrity, and customer-first approach define everything we do. We believe in transparent dealings, quality assurance, and building lasting relationships with our clients through trust and exceptional service.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Premium Vehicles</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-target="1000">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Industry Awards</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Customer Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Team</h2>
+                <p>The passionate experts behind BMW Elite's success</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="images/about/team/member1.jpg" alt="Michael Anderson">
+                        <div class="team-member-overlay">
+                            <div class="social-linkss">
+                                <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://www.x.com"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.gmail.com"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Michael Anderson</h3>
+                        <p class="team-role">Chief Executive Officer</p>
+                        <p class="team-bio">Leading BMW Elite with vision and passion for automotive excellence.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="images/about/team/member2.jpg" alt="Sarah Mitchell">
+                        <div class="team-member-overlay">
+                            <div class="social-linkss">
+                                <<a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://www.x.com"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.gmail.com"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Sarah Mitchell</h3>
+                        <p class="team-role">Sales Director</p>
+                        <p class="team-bio">Expert in luxury automotive sales with a client-first approach.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="images/about/team/member3.jpg" alt="David Chen">
+                        <div class="team-member-overlay">
+                            <div class="social-linkss">
+                                <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://www.x.com"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.gmail.com"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member-info">
+                        <h3>David Chen</h3>
+                        <p class="team-role">Operations Manager</p>
+                        <p class="team-bio">Ensuring seamless operations and exceptional service delivery.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="images/about/team/member4.jpg" alt="Emma Rodriguez">
+                        <div class="team-member-overlay">
+                            <div class="social-linkss">
+                                <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://www.x.com"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.gmail.com"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Emma Rodriguez</h3>
+                        <p class="team-role">Customer Experience Lead</p>
+                        <p class="team-bio">Dedicated to creating memorable customer experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Clients Say</h2>
+                <p>Real experiences from satisfied customers</p>
+            </div>
+
+            <div class="reviews-wrapper">
+                <button class="review-nav prev" id="prevReview">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="reviews-slider">
+                    <div class="review-card active-review">
+                        <div class="quote-mark">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="review-text">"BMW Elite provided an exceptional experience from start to finish. The M4 Competition I rented exceeded all expectations. The team's professionalism and attention to detail made the entire process seamless. Highly recommended!"</p>
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">JD</div>
+                            <div class="reviewer-details">
+                                <h4>James Davidson</h4>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="review-date">2 weeks ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="review-nav next" id="nextReview">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="slider-dots">
+                <div class="dot active" onclick="showReview(0)"></div>
+                <div class="dot" onclick="showReview(1)"></div>
+                <div class="dot" onclick="showReview(2)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Timeline -->
+    <section class="achievements-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Journey of Excellence</h2>
+                <p>Milestones that define our success</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <h3>Company Established</h3>
+                        <p>BMW Elite was founded with a vision to revolutionize luxury car rental and sales in Dubai, bringing together passion and excellence.</p>
+                    </div>
+                    <div class="timeline-image">
+                        <img src="images/about/timeline/2018.jpg" alt="2018 - Company Established">
+                    </div>
+                </div>
+
+                <div class="timeline-item reverse">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3>Expanded Collection</h3>
+                        <p>Doubled our premium vehicle collection and introduced exclusive BMW M-series models to meet growing demand.</p>
+                    </div>
+                    <div class="timeline-image">
+                        <img src="images/about/timeline/2020.jpg" alt="2020 - Expanded Collection">
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3>Award Recognition</h3>
+                        <p>Recognized as one of Dubai's top luxury automotive dealers for exceptional customer service and quality vehicles.</p>
+                    </div>
+                    <div class="timeline-image">
+                        <img src="images/about/timeline/2022.jpg" alt="2022 - Award Recognition">
+                    </div>
+                </div>
+
+                <div class="timeline-item reverse">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h3>Best Luxury Dealer</h3>
+                        <p>Awarded Best Luxury Automotive Dealer in UAE with 98% customer satisfaction rate and 1000+ happy clients.</p>
+                    </div>
+                    <div class="timeline-image">
+                        <img src="images/about/timeline/2024.jpg" alt="2024 - Best Luxury Dealer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience BMW Elite?</h2>
+                <p>Join thousands of satisfied clients who trust us for their luxury automotive needs</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary" onclick="window.location.href='rent.html'">
+                        <i class="fas fa-car"></i> Browse Collection
+                    </button>
+                    <button class="btn-secondary" onclick="window.location.href='contact.html'">
+                        <i class="fas fa-phone"></i> Contact Us
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo/bmw-elite-logo.png" alt="BMW Elite Logo">
+                        <span>BMW <span class="elite">ELITE</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Your premier destination for luxury BMW rentals and sales in Dubai.
+                        Experience excellence with every drive.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.x.com"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="rent.html">Rent a Car</a></li>
+                        <li><a href="buy.html">Buy a Car</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
+                        <li><i class="fas fa-phone"></i> +971 XX XXX XXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@bmwelite.ae</li>
+                        <li><i class="fas fa-clock"></i> Mon - Sat: 9AM - 9PM</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Search Our Collection</h4>
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <input type="text" id="footerSearch" class="search-input" placeholder="Search cars...">
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 BMW Elite. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="terms-privacy.html">Privacy Policy</a>
+                    <a href="terms-privacy.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/about.js"></script>
+</body>
+</html>

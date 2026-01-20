@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist - BMW Elite</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/wishlist.css">
+    <link rel="stylesheet" href="css/enquiry.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo/bmw-elite-logo.png" alt="BMW Elite Logo" class="logo-img">
+                <span class="logo-text">BMW <span class="elite">ELITE</span></span>
+            </div>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="rent.html" class="nav-link">Rent</a>
+                <a href="buy.html" class="nav-link">Buy</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+                <a href="wishlist.html" class="nav-link wishlist-link active">
+                    <i class="fas fa-heart"></i> Wishlist
+                    <span class="wishlist-count">0</span>
+                </a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn-login" id="loginBtn" onclick="window.location.href='login.html'">Login</button>
+                <button class="btn-signup" id="signupBtn" onclick="window.location.href='signup.html'">Sign Up</button>
+
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar" id="userAvatar" onclick="toggleUserDropdown()">U</div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown-header">
+                            <div class="user-dropdown-name" id="userName">User Name</div>
+                            <div class="user-dropdown-email" id="userEmail">user@email.com</div>
+                        </div>
+                        <div class="user-dropdown-menu">
+                            
+                            <a href="bookings.html" class="user-dropdown-item"><i class="fas fa-car"></i> My Bookings</a>
+                            <div class="user-dropdown-item logout" onclick="logoutUser()">
+                                <i class="fas fa-sign-out-alt"></i> Sign Out
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="hero-gradient"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">My Wishlist</h1>
+            <p class="hero-subtitle">Your favorite BMW vehicles saved for later</p>
+        </div>
+    </section>
+
+    <!-- Wishlist Content -->
+    <section class="wishlist-section">
+        <div class="container">
+            <!-- Wishlist Header -->
+            <div class="wishlist-header">
+                <div class="wishlist-info">
+                    <h2>Saved Vehicles</h2>
+                    <p id="wishlistItemCount">0 items in your wishlist</p>
+                </div>
+                <button class="btn-clear-all" id="clearAllBtn" onclick="clearAllWishlist()">
+                    <i class="fas fa-trash-alt"></i> Clear All
+                </button>
+            </div>
+
+            <!-- Empty Wishlist State -->
+            <div class="empty-wishlist" id="emptyWishlist">
+                <i class="fas fa-heart-broken"></i>
+                <h3>Your Wishlist is Empty</h3>
+                <p>Start adding your favorite BMW vehicles to your wishlist</p>
+                <div class="empty-wishlist-actions">
+                    <button class="btn-browse" onclick="window.location.href='rent.html'">
+                        <i class="fas fa-car"></i> Browse Rentals
+                    </button>
+                    <button class="btn-browse" onclick="window.location.href='buy.html'">
+                        <i class="fas fa-shopping-cart"></i> Browse Sales
+                    </button>
+                </div>
+            </div>
+
+            <!-- Wishlist Grid -->
+            <div class="wishlist-grid" id="wishlistGrid">
+                <!-- Cars will be loaded here dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo/bmw-elite-logo.png" alt="BMW Elite Logo">
+                        <span>BMW <span class="elite">ELITE</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Your premier destination for luxury BMW rentals and sales in Dubai.
+                        Experience excellence with every drive.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.x.com"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="rent.html">Rent a Car</a></li>
+                        <li><a href="buy.html">Buy a Car</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
+                        <li><i class="fas fa-phone"></i> +971 XX XXX XXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@bmwelite.ae</li>
+                        <li><i class="fas fa-clock"></i> Mon - Sat: 9AM - 9PM</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Search Our Collection</h4>
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <input type="text"
+                                   id="footerSearch"
+                                   class="search-input"
+                                   placeholder="Search cars...">
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 BMW Elite. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="terms-privacy.html">Privacy Policy</a>
+                    <a href="terms-privacy.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Car Details Modal -->
+    <div class="modal" id="carModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeCarDetails()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Enquiry Form Modal -->
+    <div class="enquiry-modal" id="enquiryModal">
+        <div class="enquiry-modal-content">
+            <button class="enquiry-modal-close" onclick="closeEnquiryForm()">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="enquiry-form-header">
+                <h2>Submit Your Enquiry</h2>
+                <p>Fill in the details below and we'll get back to you shortly</p>
+            </div>
+
+            <div class="enquiry-form-body">
+                <div class="car-info-summary" id="carInfoSummary"></div>
+
+                <form id="enquiryForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="enquiryName" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="enquiryEmail" required readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Phone Number *</label>
+                        <input type="tel" id="enquiryPhone" placeholder="+971 XX XXX XXXX" required>
+                    </div>
+
+                    <div id="rentalFields" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-calendar"></i> Preferred Date *</label>
+                                <input type="date" id="enquiryDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-clock"></i> Duration (Days) *</label>
+                                <input type="number" id="enquiryDuration" min="1" placeholder="e.g., 7" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-message"></i> Additional Message (Optional)</label>
+                        <textarea id="enquiryMessage" placeholder="Any special requests or questions..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-enquiry">
+                        Submit Enquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Required Modal -->
+    <div class="login-required-modal" id="loginRequiredModal">
+        <div class="login-required-content">
+            <div class="login-required-icon">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h2>Login Required</h2>
+            <p>Please login to your account to submit an enquiry and access all features.</p>
+            <div class="login-required-buttons">
+                <button class="btn-login-now" onclick="window.location.href='login.html'">
+                    Login Now
+                </button>
+                <button class="btn-cancel" onclick="closeLoginRequired()">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Message -->
+    <div class="alert-message" id="alertMessage">
+        <i class="fas fa-check-circle"></i>
+        <span class="alert-message-text">Message text here</span>
+    </div>
+
+    <script src="js/home.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/enquiry.js"></script>
+</body>
+</html>

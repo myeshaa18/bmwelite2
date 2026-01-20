@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - BMW Elite</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo/bmw-elite-logo.png" alt="BMW Elite Logo" class="logo-img">
+                <span class="logo-text">BMW <span class="elite">ELITE</span></span>
+            </div>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="rent.html" class="nav-link">Rent</a>
+                <a href="buy.html" class="nav-link">Buy</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="contact.html" class="nav-link active">Contact Us</a>
+                <a href="wishlist.html" class="nav-link wishlist-link">
+                    <i class="fas fa-heart"></i> Wishlist
+                    <span class="wishlist-count">0</span>
+                </a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn-login" id="loginBtn" onclick="window.location.href='login.html'">Login</button>
+                <button class="btn-signup" id="signupBtn" onclick="window.location.href='signup.html'">Sign Up</button>
+
+                <!-- User Profile (Hidden by default, shown when logged in) -->
+                <div class="user-profile" id="userProfile">
+                    <div class="user-avatar" id="userAvatar" onclick="toggleUserDropdown()">
+                        U
+                    </div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-dropdown-header">
+                            <div class="user-dropdown-name" id="userName">User Name</div>
+                            <div class="user-dropdown-email" id="userEmail">user@email.com</div>
+                        </div>
+                        <div class="user-dropdown-menu">
+                            
+                            <a href="bookings.html" class="user-dropdown-item">
+                                <i class="fas fa-car"></i>
+                                My Bookings
+                            </a>
+                            <div class="user-dropdown-item logout" onclick="logoutUser()">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Sign Out
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Video Background -->
+    <section class="hero-section">
+        <div class="video-background" id="heroVideo">
+            <video autoplay muted loop playsinline>
+                <source src="images/videos/contact-hero.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line-1">Get In Touch</span>
+                <span class="title-line-2">We're Here To Help</span>
+            </h1>
+            <p class="hero-subtitle">Contact us for any inquiries, support, or feedback</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToSection('contact-form-section')">
+                    Contact Us Now
+                </button>
+                <button class="btn-secondary" onclick="scrollToSection('contact-info-section')">
+                    Our Location
+                </button>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down" onclick="scrollToSection('contact-info-section')"></i>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info-section" id="contact-info-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Visit Us Today</h2>
+                <p>Find us at our showroom or reach out through any of our contact channels</p>
+            </div>
+
+            <div class="contact-info-grid">
+                <!-- Company Image -->
+                <div class="company-image-container">
+                    <img src="images/showroom.jpg" alt="BMW Elite Showroom" class="company-image">
+                    <div class="image-overlay">
+                        <h3>BMW Elite Showroom</h3>
+                        <p>Experience luxury in person</p>
+                    </div>
+                </div>
+
+                <!-- Contact Details -->
+                <div class="contact-details-container">
+                    <div class="contact-detail-card">
+                        <div class="detail-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="detail-content">
+                            <h4>Our Location</h4>
+                            <p>Sheikh Zayed Road, Dubai, United Arab Emirates</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-card">
+                        <div class="detail-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="detail-content">
+                            <h4>Phone Number</h4>
+                            <p>+971 XX XXX XXXX</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-card">
+                        <div class="detail-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="detail-content">
+                            <h4>Email Address</h4>
+                            <p>info@bmwelite.ae / sales@bmwelite.ae</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail-card">
+                        <div class="detail-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="detail-content">
+                            <h4>Business Hours</h4>
+                            <p>Monday - Saturday: 9:00 AM - 9:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" id="contact-form-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Send Us A Message</h2>
+                <p>Fill out the form below and we'll get back to you as soon as possible</p>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Full Name *</label>
+                            <input type="text" id="contactName" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> Email Address *</label>
+                            <input type="email" id="contactEmail" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> Phone Number *</label>
+                            <input type="tel" id="contactPhone" placeholder="+971 XX XXX XXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-list"></i> Reason For Contact *</label>
+                            <select id="contactReason" required>
+                                <option value="">Select a reason</option>
+                                <option value="car-enquiry">Car Enquiry</option>
+                                <option value="rental-enquiry">Rental Enquiry</option>
+                                <option value="purchase-enquiry">Purchase Enquiry</option>
+                                <option value="job-enquiry">Job Enquiry</option>
+                                <option value="complaint">Complaint</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="general-inquiry">General Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-pencil-alt"></i> Subject *</label>
+                        <input type="text" id="contactSubject" placeholder="Brief subject of your message" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-message"></i> Message *</label>
+                        <textarea id="contactMessage" rows="6" placeholder="Type your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-contact">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+
+                <!-- WhatsApp Quick Contact -->
+                <div class="whatsapp-contact">
+                    <div class="whatsapp-content">
+                        <div class="whatsapp-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="whatsapp-text">
+                            <h4>Need Quick Assistance?</h4>
+                            <p>Chat with us directly on WhatsApp for instant support</p>
+                        </div>
+                    </div>
+                    <button class="btn-whatsapp" onclick="contactWhatsApp()">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Find Us On Map</h2>
+                <p>Visit our showroom to experience our premium collection</p>
+            </div>
+            <div class="map-container">
+                <div class="map-wrapper">
+                    <!-- Google Maps Embed -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28884.93785936424!2d55.2718197!3d25.1823992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f682def25f457%3A0x3dd4c4097970950e!2sBusiness%20Bay%20-%20Dubai!5e0!3m2!1sen!2sae!4v1768637138639!5m2!1sen!2sae"
+                            width="600%"
+                            height="450%"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+
+                    <!-- Map Overlay with Link -->
+                    <div class="map-overlay-link">
+                        <a href="https://www.google.com/maps/place/Dubai+-+United+Arab+Emirates/25.192650,55.259975"
+                           target="_blank"
+                           class="btn-view-map">
+                            <i class="fas fa-map-marker-alt"></i>
+                            View on Google Maps
+                        </a>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=25.192650,55.259975"
+                           target="_blank"
+                           class="btn-directions">
+                            <i class="fas fa-directions"></i>
+                            Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo/bmw-elite-logo.png" alt="BMW Elite Logo">
+                        <span>BMW <span class="elite">ELITE</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Your premier destination for luxury BMW rentals and sales in Dubai.
+                        Experience excellence with every drive.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.x.com"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="rent.html">Rent a Car</a></li>
+                        <li><a href="buy.html">Buy a Car</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
+                        <li><i class="fas fa-phone"></i> +971 XX XXX XXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@bmwelite.ae</li>
+                        <li><i class="fas fa-clock"></i> Mon - Sat: 9AM - 9PM</li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Search Our Collection</h4>
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <input type="text"
+                                   id="footerSearch"
+                                   class="search-input"
+                                   placeholder="Search cars...">
+                            <button class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 BMW Elite. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="terms-privacy.html">Privacy Policy</a>
+                    <a href="terms-privacy.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Alert Message -->
+    <div class="alert-message" id="alertMessage">
+        <i class="fas fa-check-circle"></i>
+        <span class="alert-message-text">Message text here</span>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <p>Sending your message...</p>
+    </div>
+
+    <script src="js/contact.js"></script>
+</body>
+</html>
